@@ -2,7 +2,7 @@
 
 ## :pushpin: Descrição do projeto.
 - Quiz que envolve o desafio de pessoas negras, da infância à vida adulta.
-- 
+  
 ## 🛠️ Funcionalidades do projeto.
 - Possibilidade de escolha entre um personagem masculino ou feminino
 - As perguntas mudarão de acordo com o personagem escolhido
