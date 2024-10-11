@@ -45,7 +45,7 @@ function checkGirl(){
 function selected(){
     if(personagem == "boy" || personagem == "girl"){
         localStorage.setItem("personagem", personagem);
-        window.location.href = '../Quiz/pages/fase01.html';
+        window.location.href = 'pages/fase01.html';
     }
     else{
         alert("Escolha um personagem");
