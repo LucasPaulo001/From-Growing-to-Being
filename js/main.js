@@ -9,7 +9,7 @@ let personagem='';//Variável personagem começa vazia
 //Funções que fazem com que o botão dos avatares sejam selecionados
 function checkBoy(){
     if(btnBoy.style.borderColor == 'white'){
-        btnBoy.style.borderColor = 'rgb(0, 255, 0)';
+        btnBoy.style.borderColor = 'black';
         btnBoy.style.borderWidth = '5px';
         personagem='boy';
     }
@@ -26,7 +26,7 @@ function checkBoy(){
 console.log(checkBoy());
 function checkGirl(){
     if(btnGirl.style.borderColor == 'white'){
-        btnGirl.style.borderColor = 'rgb(0, 255, 0)';
+        btnGirl.style.borderColor = 'black';
         btnGirl.style.borderWidth = '5px';
         personagem="girl";
     }

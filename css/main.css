@@ -3,9 +3,12 @@ body{
     box-sizing: border-box;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
-    background-color: rgb(12, 24, 97);
+    background-color: #F28F16;
     color: white;
     height: 100vh;
+}
+.txt-home{
+    color: #2a1717; 
 }
 .txt-home > h1{
     text-align: center;
@@ -14,6 +17,12 @@ body{
     text-indent: 10px;
     padding: 10px;
     font-size: 18px;
+    font-size: 20px;
+}
+#destaq{
+    background-color: black;
+    color: #F28F16;
+    
 }
 .tasks{
     height: 50vh;
@@ -22,13 +31,14 @@ body{
     align-items: center;
 }
 .tasks-content{
-    background-color: rgba(35, 54, 181, 1);
+    background-color: #733822;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 50%;
-    border-radius: 20px;
+    border-radius: 20px 0;
     border: 1px solid white;
+    color: #ffffffbd;
 }
 .tasks-content > ul{
     display: flex;
@@ -50,13 +60,14 @@ body{
     justify-content: center;
 }
 .btn > button{
-    height: 40px;
+    height: 50px;
     border-radius: 10px;
-    background-color: rgba(35, 54, 181, 1);
+    background-color: #26150B;
     color: white;
     border: 1px solid white;
     font-weight: bold;
     cursor: pointer;
+    width: 120px;
 }
 .boy, .girl{
     border: 1px solid white;
@@ -68,10 +79,10 @@ body{
     transition: 0.4s;
 }
 .boy{
-    background-color: rgba(35, 54, 181, 1);
+    background-color: #733822;
 }
 .girl{
-    background-color: rgb(99, 21, 163);
+    background-color: #D9863D;
 }
 @media(max-width: 500px){
     .txt-home > p{
@@ -83,6 +94,10 @@ body{
         flex-direction: column;
         width: 100%;
         align-items: center;
+        font-size: 16px;
+    }
+    #destaq{
+        padding: 0;
     }
     .tasks-content > ul{
         display: flex;

@@ -2,7 +2,7 @@ body{
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    background-color: rgb(12, 24, 97);
+    background-color: #F28F16;
     height: 100vh;
 }
 .content-fase01{
@@ -12,7 +12,7 @@ body{
 }
 .content-top > #title{
     font-family: Arial, Helvetica, sans-serif;
-    color: white;
+    color: #5d2c18;
     text-align: center;
 }
 #img-person{
@@ -26,7 +26,7 @@ body{
 }
 .txt-game{
     font-family: arial;
-    color: rgba(255, 255, 255, 0.705);
+    color: rgb(0 0 0);;
     width: 60%;
     font-size: 18px;
 }
@@ -39,11 +39,11 @@ body{
 }
 
 .txt-low{
-    color: white;
+    color: #5d2c18;
     width: 50%;
 }
 #formulario{
-    color: white;
+    color: rgb(0, 0, 0);
     display: flex;
     flex-direction: column;
     row-gap: 30px;
@@ -53,10 +53,10 @@ body{
     appearance: none;
     border: 0;
     outline: 0;
-    background-color: rgb(43, 66, 212);
+    background-color: #5d2c18;
     height: 20px;
     width: 20px;
-    border: 1px solid blue;
+    border: 1px solid white;
     border-radius: 50%;
     transition: border-color .2s;
     cursor: pointer;
@@ -68,7 +68,7 @@ body{
     width: 0;
     height: 0;
     border-radius: 50%;
-    background-color: rgb(0, 0, 46);
+    background-color: rgb(255, 255, 255);
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -89,22 +89,22 @@ body{
     justify-content: space-evenly;
 }
 .input{
-    display: flex;
+    display: grid;
+    grid-template-rows: 1fr;
     gap: 15px;
+    grid-template-columns: 5% 1fr;
+    align-items: center;
 }
 .btn-validar > button, .btn-validar > a > button{
     height: 35px;
     border-radius: 10px;
     border: 1px solid white;
-    background-color: #5d5dff;
+    background-color: black;
     color: white;
     font-weight: bold;
     cursor: pointer;
 }
 @media(max-width: 500px){
-    *, ::after, ::before{
-        width: 100%;
-    }
     .content-fase01{
         display: flex;
         flex-direction: column;
