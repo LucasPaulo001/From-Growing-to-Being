@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fase 1</title>
+    <link rel="stylesheet" href="../css/fase01.css">
+
+</head>
+
+<body>
+    <section class="content-fase01">
+        <div class="content-top">
+            <div id="title">
+                <h1>FASE 1: Infância (Educação)</h1>
+            </div>
+            <div id="img-person">
+
+            </div>
+        </div>
+        <div class="content-low">
+            <div id="description-person">
+                <div id="txt" class="txt-game">
+
+                </div>
+            </div>
+            <div class="txt-game txt-low" id="txt-questions">
+                <h3>Alternativas:</h3>
+
+                <!--Questionário 1-->
+                <form id="formulario">
+                    <div class="input">
+                        <input class="radio" type="radio" name="question" value="1" id="qes1"><label for="qes1"> <span
+                                id="ques1"></span> </label>
+                    </div>
+
+                    <div class="input"><input class="radio" type="radio" name="question" value="2" id="qes2"><label
+                            for="qes2"> <span id="ques2"></span> </label></div>
+
+                    <div class="input"><input class="radio" type="radio" name="question" value="3" id="qes3"><label
+                            for="qes3"> <span id="ques3"></span> </label></div>
+                    <div class="input"><input class="radio" type="radio" name="question" value="4" id="qes4"><label
+                            for="qes4"> <span id="ques4"></span> </label></div>
+                </form>
+            </div>
+        </div>
+        <div class="btn-validar">
+            <button id="btn" onclick="validar()">Validar resposta</button>
+        </div>
+    </section>
+    <section class="content-fase01">
+        <div class="content-low">
+            <div id="description-person">
+                <div id="txtQ2" class="txt-game">
+
+                </div>
+            </div>
+            <div class="txt-game txt-low" id="txt-questions">
+                <h3>Alternativas:</h3>
+
+                <!--Questionário 2-->
+                <form id="formulario">
+                    <div class="input">
+                        <input class="radio" type="radio" name="question2" value="1" id="qest1">
+                        <label for="qest1"> <span id="alt1Quest2"></span> 
+                        </label>
+                    </div>
+
+                    <div class="input"><input class="radio" type="radio" name="question2" value="2" id="qest2"><label
+                            for="qest2"> <span id="alt2Quest2"></span> </label></div>
+
+                    <div class="input"><input class="radio" type="radio" name="question2" value="3" id="qest3"><label
+                            for="qest3"> <span id="alt3Quest2"></span> </label></div>
+                    <div class="input"><input class="radio" type="radio" name="question2" value="4" id="qest4"><label
+                            for="qest4"> <span id="alt4Quest2"></span> </label></div>
+                </form>
+            </div>
+        </div>
+        <div class="btn-validar">
+            <button id="btn2" onclick="validarQ2()">Validar resposta</button>
+            <a href="#"><button>Próxima fase</button></a>
+        </div>
+    </section>
+    
+
+    <script src="../js/fases.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <main>
+        <div class="txt-home">
+            <h1>Bem-vindo ao Simulador de Políticas Públicas para Pessoas Negras</h1>
+            <p> Neste site, você terá a oportunidade de tomar decisões que impactam a vida de um personagem negro em
+                diferentes fases da vida: infância, adolescência, juventude e vida adulta. Através de uma simulação
+                interativa, você verá como as escolhas baseadas em políticas públicas podem
+                afetar o futuro desse personagem em áreas como educação, saúde, segurança, trabalho e empreendedorismo.
+                Como funciona:
+            </p>
+        </div>
+        <div class="tasks">
+            <div class="tasks-content">
+                <ul>
+                    <li>A cada fase, você será apresentado a uma situação real de vida.</li>
+
+                    <li>Você deverá fazer escolhas que influenciam diretamente o desenvolvimento do personagem.</li>
+
+                    <li>Suas decisões terão consequências positivas ou negativas que afetarão o futuro do personagem.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="txt-home">
+            <p>
+                Este site é uma ferramenta de reflexão sobre como políticas públicas podem transformar realidades. Suas escolhas podem fazer a diferença!
+                Escolha um dos avatares abaixo e clique no botão para começar sua jornada!
+            </p>
+        </div>
+        <div class="persons">
+            <button class="boy" id="btn-boy">
+                <div class="img">
+                    <img src="images/menino.png" alt="" height="150px">
+                </div>
+            </button>
+            <button class="girl" id="btn-girl" aria-checked="true">
+                <div class="img">
+                    <img src="images/menina.png" alt="" height="150px">
+                </div>
+            </button>
+            <div class="btn" onclick="selected()">
+                <button>Vamos lá</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,106 @@
+body{
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(12, 24, 97);
+    color: white;
+    height: 100vh;
+}
+.txt-home > h1{
+    text-align: center;
+}
+.txt-home > p{
+    text-indent: 10px;
+    padding: 10px;
+    font-size: 18px;
+}
+.tasks{
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.tasks-content{
+    background-color: rgba(35, 54, 181, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    border-radius: 20px;
+    border: 1px solid white;
+}
+.tasks-content > ul{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    font-size: 18px;
+}
+.persons{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 40vh;
+    justify-items: center;
+    align-items: center;
+}
+.btn{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.btn > button{
+    height: 40px;
+    border-radius: 10px;
+    background-color: rgba(35, 54, 181, 1);
+    color: white;
+    border: 1px solid white;
+    font-weight: bold;
+    cursor: pointer;
+}
+.boy, .girl{
+    border: 1px solid white;
+    cursor: pointer;
+    /*color: rgb(0, 255, 0);*/
+}
+.girl :hover, .boy :hover{
+    transform: scale(1.2);
+    transition: 0.4s;
+}
+.boy{
+    background-color: rgba(35, 54, 181, 1);
+}
+.girl{
+    background-color: rgb(99, 21, 163);
+}
+@media(max-width: 500px){
+    .txt-home > p{
+        display: flex;
+        text-align: justify;
+    }
+    .txt-home{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+    .tasks-content > ul{
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        font-size: 18px;
+    }
+    .tasks-content{
+        width: 100%;
+    }
+    .persons{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, 1fr);
+        justify-items: center;
+        align-items: center;
+        padding: 15px;
+        row-gap: 50px;
+    }
+
+}
