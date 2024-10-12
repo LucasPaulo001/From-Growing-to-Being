@@ -2,7 +2,7 @@ body{
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    background-color: #F28F16;
+    /*background-color: #452011;*/
     height: 100vh;
 }
 .content-fase01{
@@ -12,7 +12,7 @@ body{
 }
 .content-top > #title{
     font-family: Arial, Helvetica, sans-serif;
-    color: #5d2c18;
+    color: #ffffff;
     text-align: center;
 }
 #img-person{
@@ -26,7 +26,7 @@ body{
 }
 .txt-game{
     font-family: arial;
-    color: rgb(0 0 0);;
+    color: rgb(255, 255, 255);;
     width: 60%;
     font-size: 18px;
 }
@@ -39,11 +39,11 @@ body{
 }
 
 .txt-low{
-    color: #5d2c18;
+    color: #ffffff;
     width: 50%;
 }
 #formulario{
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     display: flex;
     flex-direction: column;
     row-gap: 30px;
@@ -103,6 +103,28 @@ body{
     color: white;
     font-weight: bold;
     cursor: pointer;
+}
+#windowScore.modal-body{
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+    flex-direction: column;
+    align-items: center;
+}
+.modal-dialog{
+    display: flex;
+    align-items: center;
+    height: 100vh;
+}
+.btnModal{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.btn-primary{
+    background-color: black;
+    border: 1px solid white;
+    border-radius: 10px;
 }
 @media(max-width: 500px){
     .content-fase01{

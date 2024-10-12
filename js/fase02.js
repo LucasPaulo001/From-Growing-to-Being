@@ -1,5 +1,4 @@
-//Recebendo o elemento para inserir a nova imagem
-const person = document.getElementById('img-person');
+
 //Recebendo o valor do localstorage personagem
 let resp = localStorage.getItem('personagem');
 
@@ -17,7 +16,10 @@ const alt2Q02 = document.getElementById('alt2Quest2');
 const alt3Q02 = document.getElementById('alt3Quest2');
 const alt4Q02 = document.getElementById('alt4Quest2');
 
+//Variável para mudar cor de fundo de acordo com o personagem escolhido
+const background = document.getElementById('background');
 
+//Funções de comportamento do conteúdo de acordo com a escolha do avatar
 if(resp === 'boy'){
     let avatar = document.getElementById('img-person');
     let select = document.createElement('img');
@@ -25,6 +27,7 @@ if(resp === 'boy'){
     select.width = 300;
     select.height = 300;
     avatar.appendChild(select);
+    background.style.backgroundColor = '#452011';
 
     //Questão 1
     question.innerHTML = '<h2>Tema: Percepção Social e Racismo Velado</h2> <p>Pergunta 1: "Durante uma abordagem policial, você percebe que os jovens negros são mais revistados e tratados de forma mais dura em comparação aos jovens brancos. Como você reage a essa situação?"</p>' 
@@ -47,6 +50,8 @@ else if(resp === 'girl'){
     select.width = 300;
     select.height = 300;
     avatar.appendChild(select);
+    background.style.backgroundColor = '#7b4833';
+
     //Questão 1
     question.innerHTML = "<h2>Tema: Autoestima e Percepção de Si Mesma</h2> <p>Pergunta 1: 'Na escola, algumas colegas fazem comentários sobre como seu cabelo natural 'deveria ser alisado' ou 'ser mais arrumado'. Como você reage?</p>"
     alt1Q01.innerHTML = 'Tento alisar meu cabelo para evitar mais comentários negativos.' 
@@ -62,97 +67,99 @@ else if(resp === 'girl'){
     alt4Q02.innerHTML = "Não me deixar afetar, pois sei que minha autoestima não depende da validação dos outros."
 
 }
-function validar(){
-    //Recuperando chave pontuação do localstorage
-    let pontuacao = Number(localStorage.getItem('pontuação'));
-    console.log(pontuacao);
+
+//Função responsável por validar cada resposta do usuário (Importante para a contagem dos pontos)
+
+function validar() {
     const selQ01 = document.querySelector('input[name="question"]:checked');
     let alt1 = 1;
     let alt2 = 2;
     let alt3 = 3;
     let alt4 = 0;
-    /*let pontuacaoTotal = 0;*/
+    let newScore;
+
+    // Recupera a pontuação total do localStorage (ou começa com 0)
+    let pontuacaoTotal = Number(localStorage.getItem('pontuação')) || 0;
+
+    // Recupera a pontuação anterior da questão 1
+    let pontuacaoAnterior = parseInt(localStorage.getItem('pontuacaoQ01')) || 0;
+    pontuacaoTotal -= pontuacaoAnterior; // Remove a pontuação anterior
+
     const btn = document.getElementById('btn');
-    if(selQ01 == null){
+
+    if (selQ01 == null) {
         alert('Por favor selecione uma das alternativas');
         btn.style.backgroundColor = '#5d5dff';
-        
-    }
-    else if(selQ01.value == 1){
-        const btn = document.getElementById('btn');
+    } else {
+        newScore = 0;
+        if (selQ01.value == 1) {
+            newScore += alt1;
+        } else if (selQ01.value == 2) {
+            newScore += alt2;
+        } else if (selQ01.value == 3) {
+            newScore += alt3;
+        } else if (selQ01.value == 4) {
+            newScore += alt4;
+        }
+
+        pontuacaoTotal += newScore; // Adiciona nova pontuação
         btn.style.backgroundColor = 'green';
         btn.innerHTML = `Alternativa (${selQ01.value}) selecionada`;
-        pontuacao+=alt1;
-        console.log(pontuacao)
     }
-    else if(selQ01.value == 2){
-        btn.style.backgroundColor = 'green';
-        btn.innerHTML = `Alternativa (${selQ01.value}) selecionada`;
-        pontuacao+=alt2;
-    }
-    else if(selQ01.value == 3){
-        console.log(alt3);
-        btn.style.backgroundColor = 'green';
-        btn.innerHTML = `Alternativa (${selQ01.value}) selecionada`;
-        pontuacao+=alt3;
-    }
-    else if(selQ01.value == 4){
-        console.log(alt4);
-        btn.style.backgroundColor = 'green';
-        btn.innerHTML = `Alternativa (${selQ01.value}) selecionada`;
-        pontuacao+=alt4;
-    }
-    localStorage.setItem("pontuação", pontuacao);
+
+    // Armazena as pontuações
+    localStorage.setItem('pontuacaoQ01', newScore); // Armazena a pontuação da questão 1
+    localStorage.setItem('pontuação', pontuacaoTotal); // Armazena a pontuação total
 }
 
-function validarQ2(){
-    //Recuperando chave pontuação do localstorage
-    let pontuacao = Number(localStorage.getItem('pontuação'));
-    console.log(pontuacao);
+function validarQ2() {
     const selQ02 = document.querySelector('input[name="question2"]:checked');
     let alt1 = 1;
     let alt2 = 2;
     let alt3 = 3;
     let alt4 = 0;
     const btn2 = document.getElementById('btn2');
-    if(selQ02 == null){
+
+    // Recupera a pontuação total do localStorage
+    let pontuacaoTotal = Number(localStorage.getItem('pontuação')) || 0;
+
+    // Recupera a pontuação anterior da questão 2
+    let pontuacaoAnteriorQ2 = parseInt(localStorage.getItem('pontuacaoQ02')) || 0;
+    pontuacaoTotal -= pontuacaoAnteriorQ2; // Remove a pontuação anterior da questão 2
+
+    if (selQ02 == null) {
         alert('Por favor selecione uma das alternativas');
         btn2.style.backgroundColor = '#5d5dff';
-    }
-    else if(selQ02.value == 1){
-        console.log(alt1);
+    } else {
+        let newScore02 = 0; // Nova pontuação para a questão 2
+        if (selQ02.value == 1) {
+            newScore02 += alt1;
+        } else if (selQ02.value == 2) {
+            newScore02 += alt2;
+        } else if (selQ02.value == 3) {
+            newScore02 += alt3;
+        } else if (selQ02.value == 4) {
+            newScore02 += alt4;
+        }
+
+        pontuacaoTotal += newScore02; // Adiciona nova pontuação
         btn2.style.backgroundColor = 'green';
         btn2.innerHTML = `Alternativa (${selQ02.value}) selecionada`;
-        pontuacao+=alt1;
+
+        // Armazena a pontuação da questão 2
+        localStorage.setItem('pontuacaoQ02', newScore02);
+        localStorage.setItem('pontuação', pontuacaoTotal); // Atualiza a pontuação total
+        localStorage.setItem('pontuaçãoFase2', pontuacaoTotal)
     }
-    else if(selQ02.value == 2){
-        console.log(alt2);
-        btn2.style.backgroundColor = 'green';
-        btn2.innerHTML = `Alternativa (${selQ02.value}) selecionada`;
-        pontuacao+=alt2;
-    }
-    else if(selQ02.value == 3){
-        console.log(alt3);
-        btn2.style.backgroundColor = 'green';
-        btn2.innerHTML = `Alternativa (${selQ02.value}) selecionada`;
-        pontuacao+=alt3;
-    }
-    else if(selQ02.value == 4){
-        console.log(alt4);
-        btn2.style.backgroundColor = 'green';
-        btn2.innerHTML = `Alternativa (${selQ02.value}) selecionada`;
-        pontuacao+=alt4;
-    }
-    console.log(pontuacao);
-    localStorage.setItem("pontuação", pontuacao);
 }
-function nextFase(){
+
+// Função para ir para a próxima fase
+function nextFase() {
     const selQ01 = document.querySelector('input[name="question"]:checked');
     const selQ02 = document.querySelector('input[name="question2"]:checked');
-    if(selQ01!=null && selQ02!=null){
-        window.location.href = '#';
-    }
-    else{
-        alert("Marque todas as questões para ir para a próxima fase");
+    if (selQ01 != null && selQ02 != null) {
+        window.location.href = 'fase03.html'; // Navega para a próxima fase
+    } else {
+        alert("Marque todas as questões para ir para a próxima fase!");
     }
 }

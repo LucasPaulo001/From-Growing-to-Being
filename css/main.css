@@ -3,12 +3,12 @@ body{
     box-sizing: border-box;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #F28F16;
+    background-color: #a36149;
     color: white;
     height: 100vh;
 }
 .txt-home{
-    color: #2a1717; 
+    color: #ffffff; 
 }
 .txt-home > h1{
     text-align: center;
@@ -20,8 +20,8 @@ body{
     font-size: 20px;
 }
 #destaq{
-    background-color: black;
-    color: #F28F16;
+    background-color: rgb(255, 255, 255);
+    color: #a36149;
     
 }
 .tasks{
@@ -98,8 +98,8 @@ body{
     }
     #destaq{
         padding: 0;
-        background-color: #F28F16;
-        color: black;
+        background-color: #a36149;
+        color: #411c06;
     }
     .tasks-content > ul{
         display: flex;

@@ -15,6 +15,9 @@ const alt2Quest2 = document.getElementById('alt2Quest2');
 const alt3Quest2 = document.getElementById('alt3Quest2');
 const alt4Quest2 = document.getElementById('alt4Quest2');
 
+//Variável para mudar cor de fundo de acordo com o personagem escolhido
+const background = document.getElementById('background');
+
 
 //Inserção das imagens dos respectivos avatares e questionários para cada escolha
 if (resp === "boy") {
@@ -24,6 +27,7 @@ if (resp === "boy") {
     select.width = 300;
     select.height = 300;
     avatar.appendChild(select);
+    background.style.backgroundColor = '#452011';
 
     //Qestão 01
     txt.innerHTML ="<h2>Tema: Impacto da Segregação Social e Racial na Infância</h2> <p>Pergunta 1: Imagine que você é uma criança negra em uma escola onde a maioria dos seus colegas e professores são brancos. Durante uma atividade em grupo, você percebe que não é escolhido para ser o líder da equipe, enquanto seus colegas brancos são. Como isso afeta sua visão de si mesmo?</p>"
@@ -48,6 +52,8 @@ else if (resp === "girl") {
     select.width = 300;
     select.height = 300;
     avatar.appendChild(select);
+    background.style.backgroundColor = '#7b4833';
+    
 
     //Questão 01
     txt.innerHTML ="<h2>Tema: Gênero e Raça na Infância</h2> <p>Você é uma menina negra que ama ciência e sonha em ser engenheira. Na escola, quando você fala sobre isso, alguns colegas dizem que 'isso não é coisa de menina' e que 'não existe muita mulher negra engenheira'. Como você reage a esses comentários?</p>"
@@ -66,95 +72,106 @@ else if (resp === "girl") {
 }
 
 
-function validar(){
+function validar() {
     const selQ01 = document.querySelector('input[name="question"]:checked');
     let alt1 = 1;
     let alt2 = 2;
     let alt3 = 3;
     let alt4 = 0;
-    let pontuacaoTotal = 0;
+    let newScore;
+
+    // Recupera a pontuação total do localStorage (ou começa com 0)
+    let pontuacaoTotal = Number(localStorage.getItem('pontuação')) || 0;
+
+    // Recupera a pontuação anterior da questão 1
+    let pontuacaoAnterior = parseInt(localStorage.getItem('pontuacaoQ01')) || 0;
+    pontuacaoTotal -= pontuacaoAnterior; // Remove a pontuação anterior
+
     const btn = document.getElementById('btn');
-    
-    if(selQ01 == null){
+
+    if (selQ01 == null) {
         alert('Por favor selecione uma das alternativas');
         btn.style.backgroundColor = '#5d5dff';
-        
-    }
-    else if(selQ01.value == 1){
-        console.log(alt1);
-        const btn = document.getElementById('btn');
+    } else {
+        newScore = 0; // Reinicia a nova pontuação
+        if (selQ01.value == 1) {
+            newScore += alt1;
+        } else if (selQ01.value == 2) {
+            newScore += alt2;
+        } else if (selQ01.value == 3) {
+            newScore += alt3;
+        } else if (selQ01.value == 4) {
+            newScore += alt4;
+        }
+
+        // Atualiza a pontuação total e exibe feedback
+        pontuacaoTotal += newScore; // Adiciona a nova pontuação
         btn.style.backgroundColor = 'green';
         btn.innerHTML = `Alternativa (${selQ01.value}) selecionada`;
-        pontuacaoTotal+=alt1;
-        
-    }
-    else if(selQ01.value == 2){
-        btn.style.backgroundColor = 'green';
-        btn.innerHTML = `Alternativa (${selQ01.value}) selecionada`;
-        pontuacaoTotal+=alt2;
-    }
-    else if(selQ01.value == 3){
-        console.log(alt3);
-        btn.style.backgroundColor = 'green';
-        btn.innerHTML = `Alternativa (${selQ01.value}) selecionada`;
-        pontuacaoTotal+=alt3;
-    }
-    else if(selQ01.value == 4){
-        console.log(alt4);
-        btn.style.backgroundColor = 'green';
-        btn.innerHTML = `Alternativa (${selQ01.value}) selecionada`;
-        pontuacaoTotal+=alt4;
     }
 
+    // Armazena as pontuações
+    localStorage.setItem('pontuacaoQ01', newScore);
     localStorage.setItem('pontuação', pontuacaoTotal);
+    
 }
-function validarQ2(){
+
+function validarQ2() {
     const selQ02 = document.querySelector('input[name="question2"]:checked');
     let alt1 = 1;
     let alt2 = 2;
     let alt3 = 3;
     let alt4 = 0;
-    let pontuacao = Number(localStorage.getItem('pontuação'));
+    let newScore02;
+
+    // Recupera a pontuação total do localStorage (ou começa com 0)
+    let pontuacaoTotal = Number(localStorage.getItem('pontuação')) || 0;
+
+    // Recupera a pontuação anterior da questão 2
+    let pontuacaoAnterior = parseInt(localStorage.getItem('pontuacaoQ02')) || 0;
+    pontuacaoTotal -= pontuacaoAnterior; // Remove a pontuação anterior
+
     const btn2 = document.getElementById('btn2');
-    
-    if(selQ02 == null){
+
+    if (selQ02 == null) {
         alert('Por favor selecione uma das alternativas');
         btn2.style.backgroundColor = '#5d5dff';
-    }
-    else if(selQ02.value == 1){
-        console.log(alt1);
+    } else {
+        newScore02 = 0; // Reinicia a nova pontuação
+        if (selQ02.value == 1) {
+            newScore02 += alt1;
+        } 
+        else if (selQ02.value == 2) {
+            newScore02 += alt2;
+        } 
+        else if (selQ02.value == 3) {
+            newScore02 += alt3;
+        } 
+        else if (selQ02.value == 4) {
+            newScore02 += alt4;
+        }
+
+        // Atualiza a pontuação total e exibe feedback
+        pontuacaoTotal += newScore02; // Adiciona a nova pontuação
         btn2.style.backgroundColor = 'green';
         btn2.innerHTML = `Alternativa (${selQ02.value}) selecionada`;
-        pontuacao=pontuacao += alt1;
     }
-    else if(selQ02.value == 2){
-        console.log(alt2);
-        btn2.style.backgroundColor = 'green';
-        btn2.innerHTML = `Alternativa (${selQ02.value}) selecionada`;
-        pontuacao+=alt2;
-    }
-    else if(selQ02.value == 3){
-        console.log(alt3);
-        btn2.style.backgroundColor = 'green';
-        btn2.innerHTML = `Alternativa (${selQ02.value}) selecionada`;
-        pontuacao+=alt3;
-    }
-    else if(selQ02.value == 4){
-        console.log(alt4);
-        btn2.style.backgroundColor = 'green';
-        btn2.innerHTML = `Alternativa (${selQ02.value}) selecionada`;
-        pontuacao+=alt4;
-    }
-    console.log(pontuacao);
-    localStorage.setItem('pontuação', pontuacao);
+
+    // Armazena as pontuações
+    localStorage.setItem('pontuacaoQ02', newScore02);
+    localStorage.setItem('pontuação', pontuacaoTotal);
+    localStorage.setItem('pontuaçãoFase1', pontuacaoTotal);
 }
-function nextFase(){
+    
+
+
+function nextFase() {
     const selQ01 = document.querySelector('input[name="question"]:checked');
     const selQ02 = document.querySelector('input[name="question2"]:checked');
-    if(selQ01!=null && selQ02!=null){
+    if (selQ01 != null && selQ02 != null) {
         window.location.href = 'fase02.html';
-    }
-    else{
+    } else {
         alert("Marque todas as questões para ir para a próxima fase");
     }
 }
+
