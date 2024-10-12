@@ -95,7 +95,7 @@ body{
     grid-template-columns: 5% 1fr;
     align-items: center;
 }
-.btn-validar > button, .btn-validar > a > button{
+.btn-validar > button, .btn-validar > #next{
     height: 35px;
     border-radius: 10px;
     border: 1px solid white;

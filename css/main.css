@@ -98,6 +98,8 @@ body{
     }
     #destaq{
         padding: 0;
+        background-color: #F28F16;
+        color: black;
     }
     .tasks-content > ul{
         display: flex;

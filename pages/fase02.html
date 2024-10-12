@@ -1,19 +1,16 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fase 1</title>
+    <title>Fase 02</title>
     <link rel="stylesheet" href="../css/fase01.css">
-
 </head>
-
 <body>
     <section class="content-fase01">
         <div class="content-top">
             <div id="title">
-                <h1>FASE 1: Infância (Educação)</h1>
+                <h1>FASE 2: Adolescência</h1>
             </div>
             <div id="img-person">
 
@@ -31,8 +28,8 @@
                 <!--Questionário 1-->
                 <form id="formulario">
                     <div class="input">
-                        <input class="radio" type="radio" name="question" value="1" id="qes1"><label for="qes1"> <span
-                                id="ques1"></span> </label>
+                        <input class="radio" type="radio" name="question" value="1" id="qes1">
+                        <label for="qes1"> <span id="ques1"></span> </label>
                     </div>
 
                     <div class="input"><input class="radio" type="radio" name="question" value="2" id="qes2"><label
@@ -63,17 +60,35 @@
                 <form id="formulario">
                     <div class="input">
                         <input class="radio" type="radio" name="question2" value="1" id="qest1">
-                        <label for="qest1"> <span id="alt1Quest2"></span> 
+                        <label for="qest1"> 
+                            <span id="alt1Quest2">
+
+                            </span> 
                         </label>
                     </div>
 
-                    <div class="input"><input class="radio" type="radio" name="question2" value="2" id="qest2"><label
-                            for="qest2"> <span id="alt2Quest2"></span> </label></div>
+                    <div class="input"><input class="radio" type="radio" name="question2" value="2" id="qest2">
+                        <label for="qest2"> 
+                            <span id="alt2Quest2">
 
-                    <div class="input"><input class="radio" type="radio" name="question2" value="3" id="qest3"><label
-                            for="qest3"> <span id="alt3Quest2"></span> </label></div>
-                    <div class="input"><input class="radio" type="radio" name="question2" value="4" id="qest4"><label
-                            for="qest4"> <span id="alt4Quest2"></span> </label></div>
+                            </span> 
+                        </label>
+                    </div>
+
+                    <div class="input"><input class="radio" type="radio" name="question2" value="3" id="qest3">
+                        <label for="qest3"> 
+                            <span id="alt3Quest2">
+
+                            </span> 
+                        </label>
+                    </div>
+                    <div class="input"><input class="radio" type="radio" name="question2" value="4" id="qest4">
+                        <label for="qest4"> 
+                            <span id="alt4Quest2">
+
+                            </span> 
+                        </label>
+                    </div>
                 </form>
             </div>
         </div>
@@ -81,11 +96,8 @@
             <button id="btn2" onclick="validarQ2()">Validar resposta</button>
             <button id="next" onclick="nextFase()">Próxima fase</button>
         </div>
-    </section>
-    
 
-    <script src="../js/fases.js"></script>
-
+        <script src="../js/fase02.js"></script>
+        
 </body>
-
 </html>
