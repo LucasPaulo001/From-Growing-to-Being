@@ -1,5 +1,11 @@
 let btnBoy = document.getElementById('btn-boy');
 let btnGirl = document.getElementById('btn-girl');
+localStorage.removeItem("Progresso");
+localStorage.removeItem("ProgressoPorQuestãoQ1");
+localStorage.removeItem("ProgressoPorQuestãoQ2");
+localStorage.removeItem("ProgressoPorQuestãoQ2F2");
+localStorage.removeItem("ProgressoPorQuestãoQ1F2");
+localStorage.removeItem("ProgressãoPorQuestãoQ1F3");
 
 //Eventos de clique
 btnBoy.addEventListener('click', checkBoy);

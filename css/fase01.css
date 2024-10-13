@@ -127,14 +127,20 @@ body{
     border: 1px solid white;
     border-radius: 10px;
 }
+#txtFim{
+    font-family: Arial, Helvetica, sans-serif;
+    color: #ffffff;
+    font-weight: 600;
+}
 #progress-Bar{
+    gap: 10px;
+    position: sticky;
+    top: 0;
+    z-index: 2;
     height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: sticky;
-    top: 0;
-    z-index: 2;
 }
 #progress-Bar > #progress{
     background-color: green;
@@ -164,5 +170,8 @@ body{
     }
     .txt-game{
         width: 95%;
+    }
+    #progress-Bar{
+        justify-content: space-evenly;
     }
 }

@@ -70,7 +70,9 @@ else if (resp === "girl") {
     alt4Quest2.innerHTML = "Não ligo para o que a professora diz, mas começo a pensar que talvez minha cor de pele não seja vista como bonita."
 
 }
-
+// Recebendo valor de progresso da barra do nível 1
+const progressoF1 = document.getElementById('progress');
+progressoF1.value = Number(localStorage.getItem('Progresso'));
 
 function validar() {
     const selQ01 = document.querySelector('input[name="question"]:checked');
@@ -105,14 +107,22 @@ function validar() {
         }
 
         //Atualização da barra de progresso
-        const progress = document.getElementById('progress');
-        const valorAtual = progress.value;
-        const valorMax = progress.max;
-        if(valorAtual <= valorMax){
+        //const progress = document.getElementById('progress');
+        const valorAtual = Number(progressoF1.value);
+        const valorMax = Number(progressoF1.value);
+        let contProgress = localStorage.getItem("ProgressoPorQuestãoQ1")||0;
+        contProgress = Number(contProgress);
+        
+        console.log(contProgress);
+        if(valorAtual <= valorMax && contProgress === 0){
             let audio = new Audio('../audio/ding.mp3');
             audio.play();
             progress.value = valorAtual+1;
+
             localStorage.setItem('Progresso', progress.value);
+
+            contProgress = 1;
+            localStorage.setItem("ProgressoPorQuestãoQ1", contProgress);
         }
 
 
@@ -166,17 +176,25 @@ function validarQ2() {
         const progress = document.getElementById('progress');
         const valorAtual = progress.value;
         const valorMax = progress.max;
-        if(valorAtual <= valorMax){
+        let contProgressQ2 = localStorage.getItem("ProgressoPorQuestãoQ2")||0;
+        var ProgressoPQ = Number(contProgressQ2);
+
+        console.log(ProgressoPQ);
+        if(valorAtual <= valorMax && ProgressoPQ === 0){
             let audio = new Audio('../audio/ding.mp3');
             audio.play();
             progress.value = valorAtual+1;
             localStorage.setItem('Progresso', progress.value);
+
+            ProgressoPQ = 1;
+            localStorage.setItem("ProgressoPorQuestãoQ2", ProgressoPQ);
         }
 
         // Atualiza a pontuação total e exibe feedback
         pontuacaoTotal += newScore02; // Adiciona a nova pontuação
         btn2.style.backgroundColor = 'green';
         btn2.innerHTML = `Alternativa (${selQ02.value}) selecionada`;
+
     }
 
     // Armazena as pontuações

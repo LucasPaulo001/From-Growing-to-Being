@@ -97,11 +97,17 @@ function validar(){
     //Atualização da barra de progresso
     const progressoAtual = progressoFase3.value;
     const max = progressoFase3.max;
-    if(progressoAtual <= max){
+    progressQ1 = localStorage.getItem("ProgressãoPorQuestãoQ1F3")||0;
+    progressQ1 = Number(progressQ1);
+    
+    if(progressoAtual <= max && progressQ1 === 0){
         let audio = new Audio('../audio/ding.mp3');
         audio.play();
         progressoFase3.value = progressoAtual+1;
         localStorage.setItem('Progresso', progressoFase3.value);
+
+        progressQ1 = 1;
+        localStorage.setItem("ProgressãoPorQuestãoQ1F3", progressQ1);
     }
 
     // Armazena as pontuações
@@ -121,4 +127,11 @@ function validar(){
     const windowScore = document.getElementById('windowScore');
     windowScore.innerHTML = "<p>Pontuação de questões : </p>" + "<strong>" + "<h1>" +  somaScore + "</h1>" + "</strong> <br><p>A pontuação é computada com base no nível de reflexão, crítica ou ação que as respostas indicam</p>";
     //console.log(somaScore);
+
+    
+    msgFim.innerHTML = 'Quiz Finalizado!';
+    var gifContent = document.createElement('img');
+    gifContent.src = '../images/like.gif';
+    gifContent.style.height = '50px';
+    gif.appendChild(gifContent);
 }

@@ -114,17 +114,30 @@ function validar() {
     //Atualização da barra de progresso
     const progressoAtual = progressoFase2.value;
     const max = progressoFase2.max;
-    if(progressoAtual <= max){
+    let progressQ1 = localStorage.getItem("ProgressoPorQuestãoQ1F2")||0;
+    progressQ1 = Number(progressQ1);
+    
+
+    console.log(progressQ1);
+    if(progressoAtual <= max && progressQ1 === 0){
         let audio = new Audio('../audio/ding.mp3');
         audio.play();
         progressoFase2.value = progressoAtual+1;
         localStorage.setItem('Progresso', progressoFase2.value);
+
+        progressQ1 = 1;
+        localStorage.setItem("ProgressoPorQuestãoQ1F2", progressQ1);
     }
+
+    
 
     // Armazena as pontuações
     localStorage.setItem('pontuacaoQ01', newScore); // Armazena a pontuação da questão 1
     localStorage.setItem('pontuação', pontuacaoTotal); // Armazena a pontuação total
 }
+
+
+localStorage.getItem("ProgressoPorQuestão");
 
 function validarQ2() {
     const selQ02 = document.querySelector('input[name="question2"]:checked');
@@ -157,13 +170,20 @@ function validarQ2() {
         }
 
         //Atualização da barra de progresso
-        const progressoAtual = progressoFase2.value;
-        const max = progressoFase2.max;
-        if(progressoAtual <= max){
+        const progressoAtual = Number(progressoFase2.value);
+        const max = Number(progressoFase2.max);
+        let progressQ2 = localStorage.getItem("ProgressoPorQuestãoQ2F2")|| 0;
+        progressQ2 = Number(progressQ2);
+
+        console.log(progressQ2)
+        if(progressoAtual <= max && progressQ2 === 0){
             let audio = new Audio('../audio/ding.mp3');
             audio.play();
             progressoFase2.value = progressoAtual+1;
             localStorage.setItem('Progresso', progressoFase2.value);
+
+            progressQ2=1;
+            localStorage.setItem("ProgressoPorQuestãoQ2F2", progressQ2);
         }
 
         pontuacaoTotal += newScore02; // Adiciona nova pontuação
@@ -187,3 +207,4 @@ function nextFase() {
         alert("Marque todas as questões para ir para a próxima fase!");
     }
 }
+
