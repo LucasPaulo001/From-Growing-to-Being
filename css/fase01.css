@@ -3,7 +3,7 @@ body{
     padding: 0;
     margin: 0;
     /*background-color: #452011;*/
-    height: 100vh;
+    /*height: 100vh;*/
 }
 .content-fase01{
     display: grid;
@@ -94,6 +94,7 @@ body{
     gap: 15px;
     grid-template-columns: 5% 1fr;
     align-items: center;
+    z-index: 1;
 }
 .btn-validar > button, .btn-validar > #next{
     height: 35px;
@@ -125,6 +126,29 @@ body{
     background-color: black;
     border: 1px solid white;
     border-radius: 10px;
+}
+#progress-Bar{
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+#progress-Bar > #progress{
+    background-color: green;
+    width: 50%;
+    border: 1px solid white;
+}
+#progress::-webkit-progress-value {
+    background-color: #45eb4a; /* Cor do preenchimento */
+    transition: 1s;
+}
+
+#progress::-moz-progress-bar {
+    background-color: #4caf50; /* Cor do preenchimento */
+    
 }
 @media(max-width: 500px){
     .content-fase01{

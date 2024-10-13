@@ -44,6 +44,11 @@ else if(resp === 'girl'){
     alt4Q01.innerHTML = 'Converso com amigos ou familiares sobre o impacto dessas situações e busco formas de enfrentá-las.'
 }
 
+// Recebendo valor de progresso da barra do nível 1
+const progressoFase3 = document.getElementById('progress');
+progressoFase3.value = Number(localStorage.getItem('Progresso'));
+console.log(progressoFase3.value)
+
 function validar(){
     const selQ01 = document.querySelector('input[name="question"]:checked');
     let alt1 = 1;
@@ -87,6 +92,16 @@ function validar(){
         pontuacaoTotal += newScore; // Adiciona nova pontuação
         btn.style.backgroundColor = 'green';
         btn.innerHTML = `Alternativa (${selQ01.value}) selecionada`;
+    }
+
+    //Atualização da barra de progresso
+    const progressoAtual = progressoFase3.value;
+    const max = progressoFase3.max;
+    if(progressoAtual <= max){
+        let audio = new Audio('../audio/ding.mp3');
+        audio.play();
+        progressoFase3.value = progressoAtual+1;
+        localStorage.setItem('Progresso', progressoFase3.value);
     }
 
     // Armazena as pontuações

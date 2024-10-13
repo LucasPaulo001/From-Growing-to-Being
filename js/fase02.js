@@ -68,6 +68,10 @@ else if(resp === 'girl'){
 
 }
 
+// Recebendo valor de progresso da barra do nível 1
+const progressoFase2 = document.getElementById('progress');
+progressoFase2.value = Number(localStorage.getItem('Progresso'));
+
 //Função responsável por validar cada resposta do usuário (Importante para a contagem dos pontos)
 
 function validar() {
@@ -107,6 +111,16 @@ function validar() {
         btn.innerHTML = `Alternativa (${selQ01.value}) selecionada`;
     }
 
+    //Atualização da barra de progresso
+    const progressoAtual = progressoFase2.value;
+    const max = progressoFase2.max;
+    if(progressoAtual <= max){
+        let audio = new Audio('../audio/ding.mp3');
+        audio.play();
+        progressoFase2.value = progressoAtual+1;
+        localStorage.setItem('Progresso', progressoFase2.value);
+    }
+
     // Armazena as pontuações
     localStorage.setItem('pontuacaoQ01', newScore); // Armazena a pontuação da questão 1
     localStorage.setItem('pontuação', pontuacaoTotal); // Armazena a pontuação total
@@ -140,6 +154,16 @@ function validarQ2() {
             newScore02 += alt3;
         } else if (selQ02.value == 4) {
             newScore02 += alt4;
+        }
+
+        //Atualização da barra de progresso
+        const progressoAtual = progressoFase2.value;
+        const max = progressoFase2.max;
+        if(progressoAtual <= max){
+            let audio = new Audio('../audio/ding.mp3');
+            audio.play();
+            progressoFase2.value = progressoAtual+1;
+            localStorage.setItem('Progresso', progressoFase2.value);
         }
 
         pontuacaoTotal += newScore02; // Adiciona nova pontuação

@@ -31,10 +31,10 @@ if (resp === "boy") {
 
     //Qestão 01
     txt.innerHTML ="<h2>Tema: Impacto da Segregação Social e Racial na Infância</h2> <p>Pergunta 1: Imagine que você é uma criança negra em uma escola onde a maioria dos seus colegas e professores são brancos. Durante uma atividade em grupo, você percebe que não é escolhido para ser o líder da equipe, enquanto seus colegas brancos são. Como isso afeta sua visão de si mesmo?</p>"
-    quest1.textContent = "Eu acharia quenão sou bom o suficiente para liderar."
+    quest1.textContent = "Eu acharia que não sou bom o suficiente para liderar."
     quest2.innerHTML = "Eu acreditariaque os outros têm mais confiança por serem melhores ou mais inteligentes."
     quest3.innerHTML = "Eu começaria aquestionar se a cor da minha pele influencia a forma como sou tratado."
-    quest4.innerHTML = "Não vejo relaçãoentre a cor da pele e ser escolhido como líder; deve ser só falta de sorte."
+    quest4.innerHTML = "Não vejo relação entre a cor da pele e ser escolhido como líder; deve ser só falta de sorte."
     
     //Questão 02
     txt02.innerHTML = "<h2>Tema: Racismo e Autoestima na Infância</h2> <p>Pergunta 2: Você é um menino negro e sempre ouviu que precisa se esforçar mais que seus colegas brancos para ser reconhecido. Quando um professor elogia um colega por suas notas e ignora seu esforço, como você se sente?</p>"
@@ -104,6 +104,18 @@ function validar() {
             newScore += alt4;
         }
 
+        //Atualização da barra de progresso
+        const progress = document.getElementById('progress');
+        const valorAtual = progress.value;
+        const valorMax = progress.max;
+        if(valorAtual <= valorMax){
+            let audio = new Audio('../audio/ding.mp3');
+            audio.play();
+            progress.value = valorAtual+1;
+            localStorage.setItem('Progresso', progress.value);
+        }
+
+
         // Atualiza a pontuação total e exibe feedback
         pontuacaoTotal += newScore; // Adiciona a nova pontuação
         btn.style.backgroundColor = 'green';
@@ -149,6 +161,16 @@ function validarQ2() {
         } 
         else if (selQ02.value == 4) {
             newScore02 += alt4;
+        }
+        //Atualização da barra de progresso
+        const progress = document.getElementById('progress');
+        const valorAtual = progress.value;
+        const valorMax = progress.max;
+        if(valorAtual <= valorMax){
+            let audio = new Audio('../audio/ding.mp3');
+            audio.play();
+            progress.value = valorAtual+1;
+            localStorage.setItem('Progresso', progress.value);
         }
 
         // Atualiza a pontuação total e exibe feedback
