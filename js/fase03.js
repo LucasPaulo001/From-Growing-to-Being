@@ -100,14 +100,28 @@ function validar(){
     progressQ1 = localStorage.getItem("ProgressãoPorQuestãoQ1F3")||0;
     progressQ1 = Number(progressQ1);
     
+    //Condição para aumentar a barra de progresso, implementar o som e permitir apenas um aumento na barra por vez
     if(progressoAtual <= max && progressQ1 === 0){
-        let audio = new Audio('../audio/ding.mp3');
+        let audio = new Audio('../audio/águaSom.mp3');
         audio.play();
         progressoFase3.value = progressoAtual+1;
         localStorage.setItem('Progresso', progressoFase3.value);
 
         progressQ1 = 1;
         localStorage.setItem("ProgressãoPorQuestãoQ1F3", progressQ1);
+
+
+        //Mensagem de Finalização ativadao quando a última questão for respondida
+        let audioFim = new Audio('../audio/ding.mp3');
+        audioFim.play();
+        var progressBar = document.getElementById('progress-Bar');
+        progressBar.style.backgroundColor = 'white';
+        msgFim.innerHTML = 'Quiz Finalizado!';
+        msgFim.style.color = 'black';
+        var gifContent = document.createElement('img');
+        gifContent.src = '../images/like.gif';
+        gifContent.style.height = '50px';
+        gif.appendChild(gifContent);
     }
 
     // Armazena as pontuações
@@ -128,10 +142,4 @@ function validar(){
     windowScore.innerHTML = "<p>Pontuação de questões : </p>" + "<strong>" + "<h1>" +  somaScore + "</h1>" + "</strong> <br><p>A pontuação é computada com base no nível de reflexão, crítica ou ação que as respostas indicam</p>";
     //console.log(somaScore);
 
-    
-    msgFim.innerHTML = 'Quiz Finalizado!';
-    var gifContent = document.createElement('img');
-    gifContent.src = '../images/like.gif';
-    gifContent.style.height = '50px';
-    gif.appendChild(gifContent);
 }

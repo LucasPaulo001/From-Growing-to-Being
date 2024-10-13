@@ -115,7 +115,7 @@ function validar() {
         
         console.log(contProgress);
         if(valorAtual <= valorMax && contProgress === 0){
-            let audio = new Audio('../audio/ding.mp3');
+            let audio = new Audio('../audio/águaSom.mp3');
             audio.play();
             progress.value = valorAtual+1;
 
@@ -181,7 +181,7 @@ function validarQ2() {
 
         console.log(ProgressoPQ);
         if(valorAtual <= valorMax && ProgressoPQ === 0){
-            let audio = new Audio('../audio/ding.mp3');
+            let audio = new Audio('../audio/águaSom.mp3');
             audio.play();
             progress.value = valorAtual+1;
             localStorage.setItem('Progresso', progress.value);

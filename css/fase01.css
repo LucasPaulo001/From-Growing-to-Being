@@ -172,6 +172,6 @@ body{
         width: 95%;
     }
     #progress-Bar{
-        justify-content: space-evenly;
+        justify-content: center;
     }
 }
