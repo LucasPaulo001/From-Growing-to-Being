@@ -142,6 +142,9 @@ body{
     align-items: center;
     justify-content: center;
 }
+.efect-form, .efect-form02{
+    visibility: hidden;
+}
 #progress-Bar > #progress{
     background-color: green;
     width: 50%;
