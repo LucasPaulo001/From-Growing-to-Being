@@ -14,3 +14,6 @@
 - ``HTML5``
 - ``CSS3``
 - ``JavaScript``
+
+## 📁 Acessando o projeto
+Você pode acessar o projeto pelo [link hospedado no guithub](https://lucaspaulo001.github.io/From-Growing-to-Being/)
